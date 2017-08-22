@@ -1,0 +1,29 @@
+{
+  "name": "tic-tac-toe",
+  "description": "Tic Tac Toe Game",
+  "main": "index.html",
+  "authors": [
+    "James Dooley"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Tic",
+    "Tac",
+    "Toe"
+  ],
+  "homepage": "https://github.com/codesurge-xyz/fcc-tic-tac-toe",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "requirejs": "^2.3.5",
+    "semantic": "^2.2.13"
+  }
+}
