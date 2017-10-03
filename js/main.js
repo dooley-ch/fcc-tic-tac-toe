@@ -31,12 +31,6 @@ define("main", function (require, exports) {
     // A reference to the reset button
     var _resetBtn = $("#reset_button");
 
-    // A reference to the mobile template
-    var _phoneTemplate = $("#phoneTemplate").html();
-
-    // A reference to the desktop template
-    var _computerTemplate = $("#computerTemplate").html();
-
     /**
      * Sets the user mark to X
      * 
