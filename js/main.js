@@ -6,9 +6,9 @@ requirejs.config({
     },
 
     paths: {
-        jquery: "libs/jquery/dist/jquery.min",
-        lodash: "libs/lodash/dist/lodash.min",
-        semantic: "libs/semantic/dist/semantic.min"
+        jquery: "jquery.min",
+        lodash: "lodash.min",
+        semantic: "semantic.min"
     }
 });
 
