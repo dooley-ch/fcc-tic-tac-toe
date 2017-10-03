@@ -28,6 +28,9 @@ define("main", function (require, exports) {
     // A reference to the Y selection button
     var _setOBtn = $("#set_o_button");
 
+    // A reference to the reset button
+    var _resetBtn = $("#reset_button");
+
     // A reference to the mobile template
     var _phoneTemplate = $("#phoneTemplate").html();
 
@@ -48,6 +51,7 @@ define("main", function (require, exports) {
         _setOBtn.addClass("grey");
 
         _ttt.Reset();
+        _ttt.SetUsersMark(_ttt.CROSS);
     }
 
     /**
@@ -64,6 +68,7 @@ define("main", function (require, exports) {
         _setOBtn.addClass("blue");
 
         _ttt.Reset();
+        _ttt.SetUsersMark(_ttt.NAUGHT);
     }
 
     /**
@@ -97,6 +102,14 @@ define("main", function (require, exports) {
     }
 
     /**
+     * Reset the game when the button is clicked
+     * 
+     */
+    function _resetGame() {
+        _ttt.Reset();
+    }
+
+    /**
      * Updates the page with the current status of the game
      * 
      * @param {array} grid 
@@ -118,11 +131,15 @@ define("main", function (require, exports) {
      * @param {string} winner An X or an O, indicating who won 
      */
     function _reportWinner(winner) {
-        if (winner == _userIs) {
-            alert("Congratulations, you have won!");
-        } else {
-            alert("Commiserations, you lost");
+        if (winner === _ttt.EMPTY) {
+            return alert("It's a draw!");
         }
+
+        if (winner == _userIs) {
+            return alert("Congratulations, you have won!");
+        }
+
+        alert("Commiserations, the computer wins");
     }
 
     /**
@@ -135,6 +152,7 @@ define("main", function (require, exports) {
 
         _setXBtn.click(_setUserToX);
         _setOBtn.click(_setUserToO);
+        _resetBtn.click(_resetGame);
 
         $(".game-cell").click(_onCellClicked);
     }
