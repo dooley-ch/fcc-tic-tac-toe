@@ -12,64 +12,66 @@
 
         <link rel="stylesheet" href="js/libs/semantic/dist/semantic.min.css">
         <link rel="stylesheet" href="css/main.css">
+
+        <script id="phoneTemplate" type="text/template">
+        </script>
+
+        <script id="computerTemplate" type="text/template">
+        </script>
     </head>
 
     <body>
-        <header>
-        </header>
-
-        <section class="ui center aligned container">
-            <h1 class="margin-top-50">Tic Tac Toe!</h1>
-            <table class="ui basic unstackable small celled table margin-top-30">
-                <tbody>
-                    <tr>
-                        <td class="center aligned mouse-hand game-cell" data-cell="0-0">
-                            <img id="mob_img-0-0" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="0-1">
-                            <img id="mob_img-0-1" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="0-2">
-                            <img id="mob_img-0-2" src="img/q.png">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center aligned mouse-hand game-cell" data-cell="1-0">
-                            <img id="mob_img-1-0" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="1-1">
-                            <img id="mob_img-1-1" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="1-2">
-                            <img id="mob_img-1-2" src="img/q.png">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center aligned mouse-hand game-cell" data-cell="2-0">
-                            <img id="mob_img-2-0" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="2-1">
-                            <img id="mob_img-2-1" src="img/q.png">
-                        </td>
-                        <td class="center aligned mouse-hand game-cell" data-cell="2-2">
-                            <img id="mob_img-2-2" src="img/q.png">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="right floated large ui buttons">
-                <button id="set_x_button" class="circular ui icon blue button mouse-hand">
-                    X
-                </button>
-                <button id="set_o_button" class="circular ui icon grey button mouse-hand">
-                    O
-                </button>
-            </div>
-        </section>
+        <div id="displayPanel">
+            <section class="ui center aligned container">
+                <h1 class="margin-top-50">Tic Tac Toe!</h1>
+                <table class="ui basic unstackable small celled table margin-top-30">
+                    <tbody>
+                        <tr>
+                            <td class="center aligned mouse-hand game-cell" data-cell="0-0">
+                                <img id="img-0-0" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="0-1">
+                                <img id="img-0-1" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="0-2">
+                                <img id="img-0-2" src="img/q.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center aligned mouse-hand game-cell" data-cell="1-0">
+                                <img id="img-1-0" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="1-1">
+                                <img id="img-1-1" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="1-2">
+                                <img id="img-1-2" src="img/q.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center aligned mouse-hand game-cell" data-cell="2-0">
+                                <img id="img-2-0" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="2-1">
+                                <img id="img-2-1" src="img/q.png">
+                            </td>
+                            <td class="center aligned mouse-hand game-cell" data-cell="2-2">
+                                <img id="img-2-2" src="img/q.png">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="right floated large ui buttons">
+                    <button id="set_x_button" class="circular ui icon blue button mouse-hand">
+                        X
+                    </button>
+                    <button id="set_o_button" class="circular ui icon grey button mouse-hand">
+                        O
+                    </button>
+                </div>
+            </section>
+        </div>
         
-        <footer>
-        </footer>
-
         <script data-main="js/main" src="js/libs/requirejs/require.js"></script>
     </body>
 </html>

@@ -17,24 +17,27 @@ define("main", function (require, exports) {
 
     var $ = require("jquery");
     require("semantic");
-
     var _ttt = require("tic-tac-toe");
 
+    // User's mark
     var _userIs = _ttt.CROSS;
 
+    // A reference to the X selection button
     var _setXBtn = $("#set_x_button");
+
+    // A reference to the Y selection button
     var _setOBtn = $("#set_o_button");
 
-    function _disableUserButtons () {
-        _setXBtn.addClass("disabled");
-        _setOBtn.addClass("disabled");
-    }
+    // A reference to the mobile template
+    var _phoneTemplate = $("#phoneTemplate").html();
 
-    function _enableUserButtons () {
-        _setXBtn.removeClass("disabled");
-        _setOBtn.removeClass("disabled");
-    }
+    // A reference to the desktop template
+    var _computerTemplate = $("#computerTemplate").html();
 
+    /**
+     * Sets the user mark to X
+     * 
+     */
     function _setUserToX () {
         _userIs = _ttt.CROSS;
 
@@ -43,8 +46,14 @@ define("main", function (require, exports) {
 
         _setOBtn.removeClass("blue");
         _setOBtn.addClass("grey");
+
+        _ttt.Reset();
     }
 
+    /**
+     * Sets the user mark to O
+     * 
+     */
     function _setUserToO () {
         _userIs = _ttt.NAUGHT;
 
@@ -53,22 +62,77 @@ define("main", function (require, exports) {
 
         _setOBtn.removeClass("grey");
         _setOBtn.addClass("blue");
+
+        _ttt.Reset();
     }
 
+    /**
+     * Responds to the user clicking on a cell
+     * 
+     * @param {object} e 
+     */
     function _onCellClicked(e) {
         var cell = e.currentTarget.dataset.cell;
+        _ttt.UserMove(cell, _userIs);
+    }
 
-        _disableUserButtons();
+    /**
+     * Changes the image in a given cell to the requested one
+     * 
+     * @param {string} cellId The html id of the cell to change 
+     * @param {any} cellValue - the required image type: X, 0, ?
+     */
+    function _setCellImage(cellId, cellValue) {
+        var img = "img/q.png";
 
-        alert(cell);
+        if (cellValue === _ttt.CROSS) {
+            img = "img/x.png";
+        }
+
+        if (cellValue === _ttt.NAUGHT) {
+            img = "img/o.png";
+        }
+
+        $(cellId).attr("src", img);
+    }
+
+    /**
+     * Updates the page with the current status of the game
+     * 
+     * @param {array} grid 
+     */
+    function _updateDisplay(grid) {
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                var cellValue = grid[i][j];
+                var cellId = "#img-" + i + "-" + j;
+
+                _setCellImage(cellId, cellValue);
+            }
+        }
+    }
+
+    /**
+     * Tell the user who has won the game
+     * 
+     * @param {string} winner An X or an O, indicating who won 
+     */
+    function _reportWinner(winner) {
+        if (winner == _userIs) {
+            alert("Congratulations, you have won!");
+        } else {
+            alert("Commiserations, you lost");
+        }
     }
 
     /**
      * This function initializes the applicaiton
      *
-     * @return {void}
      */
     function _init() {
+        _ttt.UpdateCallback(_updateDisplay);
+        _ttt.ReportWinnerCallback(_reportWinner);
+
         _setXBtn.click(_setUserToX);
         _setOBtn.click(_setUserToO);
 
